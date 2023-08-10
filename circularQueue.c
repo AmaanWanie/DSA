@@ -3,8 +3,8 @@
 void enque();
 void deque();
 void display();
-//void count();
-int F=-1,R=-1,c=0,Q[7];
+void count();
+int F=-1,R=-1,C=0,Q[7];
 
 void main(){
 	int e;
@@ -22,7 +22,7 @@ void main(){
 			display();
 			break;
 		case 4 :
-			//count();
+			count();
 			break;
 		default :
 			printf("entercorrectvalue");
@@ -35,7 +35,7 @@ void main(){
 void enque(){
 	int el;
 	if((R+1)%7==F){
-		printf("que full");
+		printf("que full\n");
 		return;
 	}
 	printf("enter element\n");
@@ -48,12 +48,13 @@ void enque(){
 		R=((R+1)%7);
 	}
 	Q[R]=el;
+   C++;
 	
 }
 void deque(){
 	int el;
 	if(R==-1 && F==-1){
-		printf("queue empty");
+		printf("queue empty\n");
 		return;
 	}
 	el=Q[F];
@@ -64,7 +65,7 @@ void deque(){
 	}else{
 		F=((F+1)%7);
 	}
-	
+C--;	
 }
 void display(){
 	 if (F == -1 && R == -1) {
@@ -83,4 +84,14 @@ void display(){
 	}
 	printf("\nF=%d R=%d\n", F, R);
     
+}
+
+void count(){
+if(F==-1 && R==-1){
+printf("empty queue\n");
+return;
+}else
+{
+printf("count: %d\n",C);
+}
 }
