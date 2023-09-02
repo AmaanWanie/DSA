@@ -9,13 +9,16 @@ struct bst *root;
 //funct prototypes
 void insert();
 void inorder(struct bst *t);
+void postorder(struct bst *t);
+void inorder(struct bst *t);
+void preorder(struct bst *t);
 void modify(struct bst *t,int x);
 
 int main(){
 	int c, el;
 	struct bst *t;
 	do{
-		printf("enter 1 for insert, 2 for inorder\n");
+		printf("enter 1 for insert, 2 for inorder, 3 for post order, 4 for preorder\n");
 		scanf("%d",&c);
 	switch(c){
 		case 1:
@@ -31,9 +34,30 @@ int main(){
 			}
 			break;
 		case 3:
-			if(root==NULL);
+			if(root==NULL){
+				printf("empty root\n");
+			}else{
+				t=root;
+				postorder(t);
+				printf("\n");
+			}
+			break;
+			
+			
+			case 4:
+			if(root==NULL){
+				printf("empty root\n");
+			}else{
+				t=root;
+				preorder(t);
+				printf("\n");
+			}
+			break;				
+		case 5:
+			if(root==NULL)
 			return;
 			else{
+				int x;
 			t=root;
 			printf("enter the element you wanna replace\n");
 			scanf("%d",&x);
@@ -89,6 +113,28 @@ void inorder(struct bst *t){
 		
 	}
 }
+
+void postorder(struct bst *t){
+if(t==NULL){
+	
+	return;
+}
+postorder(t->l);
+postorder(t->r);
+printf("%d ",t->data);
+	
+}
+
+void preorder(struct bst *t){
+	if(t==NULL){
+		return;
+	}
+	printf("%d ",t->data);
+	preorder(t->l);
+	preorder(t->r);
+}
+
+
 
 void modify(struct bst *t,int x){
 	
