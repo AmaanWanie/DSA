@@ -64,6 +64,6 @@ void disp(){
 		return 0;
 	}
 	for(i=top;i>=0;i--){
-		printf("\n stack[%d]=%d",i,stk[i]);	
+		printf("\n stack[%d]=%d\n",i,stk[i]);	
 	}
 }

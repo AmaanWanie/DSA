@@ -68,7 +68,7 @@ void deque(){
 C--;	
 }
 void display(){
-	 if (F == -1 && R == -1) {
+	 if (F ==-1 && R ==-1) {
         printf("empty queue\n");
         return;
     }
