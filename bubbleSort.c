@@ -1,16 +1,18 @@
 #include <stdio.h>
 
 int arr[] = {54, 72, 255, 834, 57, 977, 156756};
-
+// a global array (unsorted)
 void bubbleSort(int arr[], int n);
 void swap(int arr[], int j);
 
 void bubbleSort(int arr[], int n) {
     int i, j;
     int flag = 0;
-
+//flag counter to check if in the first pass any element is swapped.if not then array is sorted
     for (i = 0; i < n - 1; i++) {
+      //i counter for passes  
         for (j = 0; j < n - 1 - i; j++) {
+            // j counter for in array traversal
             if (arr[j] > arr[j + 1]) {
                 swap(arr, j);
                 flag = 1;
@@ -18,6 +20,7 @@ void bubbleSort(int arr[], int n) {
         }
 
         if (flag == 0) {
+            // break the outer loop which is for passes which means the array is sorted as no element is swapped.
             break;
         }
     }
