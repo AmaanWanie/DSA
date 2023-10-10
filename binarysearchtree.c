@@ -12,7 +12,7 @@ void inorder(struct bst *t);
 void postorder(struct bst *t);
 void inorder(struct bst *t);
 void preorder(struct bst *t);
-void modify(struct bst *t,int x);
+void deleteBst(struct bst *t,int x);
 
 int main(){
 	int c, el;
@@ -136,7 +136,7 @@ void preorder(struct bst *t){
 
 
 
-void modify(struct bst *t,int x){
+void deleteBst(struct bst *t,int x){
 	
 }
 
