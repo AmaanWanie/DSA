@@ -1,46 +1,46 @@
 #include <stdio.h>
-#include <stdlib.h>
+a[]={5,7,2,1,67,99};
 
-int a[] = {7, 3, 8, 2, 6, 33, 5, 12, 1};
-int piv = 7;
-
-void swap(int i, int j) {
-    int temp = a[i];
-    a[i] = a[j];
-    a[j] = temp;
+void swap(int start, int end){
+	int temp=a[start];
+	a[start]=a[end];
+	a[end]=temp;
 }
 
-int partition(int l, int h) {
-  int pivot = a[h];
-  int i = l - 1;
-  for (int j = l; j < h; j++) {
-    if (a[j] <= pivot) {
-      i++;
-      swap(i, j);
-    }
-  }
-  swap(i + 1, h);
-  return i + 1;
+int partition(int l, int h){
+	int piv=a[l];
+	int start=l;
+	int end=h;
+	while(start<end){
+	
+	while(a[start]<=piv){
+		start++;
+	}
+	while(a[end]>piv){
+		end--;
+	}
+	if(start<end){
+		swap(start,end);
+	}
+ }
+ swap(l,end);
+ return end;
 }
 
-
-void quicksort(int l, int h) {
-    if (l < h) {
-        int j = partition(l, h);
-        quicksort(l, j - 1);
-        quicksort(j, h);
-    }
+void quicksort(int l ,int h){
+    if(l<h){
+    	int end=partition(l,h);
+    	quicksort(l,end-1);
+    	quicksort(end+1,h);
+	}
 }
 
-int main() {
-    int l = 0;
-    int h = 8;
-
-    quicksort(l, h);
-    int k;
-    for (k = 0; k < 9; k++) {
-        printf("%d ", a[k]);
-    }
-
-    return 0;
+int main(){
+	int l=0;
+	int h=5;
+	quicksort(l,h);
+	for(int k=0;k<=5;k++){
+		printf("%d ",a[k]);
+	}
+	
 }

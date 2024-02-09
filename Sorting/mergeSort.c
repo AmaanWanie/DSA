@@ -1,14 +1,14 @@
 #include <stdio.h>
 
-int a[] = {7, 3, 8, 2, 6, 33, 5, 12, 1};
-int b[9]; // Size of 'b' should match the size of 'a'
+int a[] = {7, 3, 8, 2};
+int b[4]; // Size of 'b' should match the size of 'a'
 
-void merge(int l, int mid, int h) {
-    int i = l;
-    int j = mid + 1;
-    int k = l;
+void merge(int l, int mid, int h) { // 0,0,1
+    int i = l;//0
+    int j = mid + 1;//1
+    int k = l;//1
 
-    while (i <= mid && j <= h) {
+    while (i <= mid && j <= h) {//0<=1 1<=1
         if (a[i] <= a[j]) {
             b[k] = a[i];
             i++;
@@ -39,19 +39,19 @@ void merge(int l, int mid, int h) {
 
 void mergesort(int l, int h) {
     if (l < h) {
-        int mid = l + (h-l) / 2;
-        mergesort(l, mid);
-        mergesort(mid + 1, h);
-        merge(l, mid, h);
+        int mid = l + (h-l) / 2;//1st=0+(8-0)/2==4  
+        mergesort(l, mid);//1st=(0,4)
+        mergesort(mid + 1, h);//1st=(4,8)
+        merge(l, mid, h);//1st=(0,4,8)
     }
 }
 
 int main() {
-    int l = 0, h = 8;
+    int l = 0, h = 3;
     mergesort(l, h);
 
     printf("Sorted array:\n");
-    for (int k = 0; k < 9; k++) {
+    for (int k = 0; k <=h; k++) {
         printf("%d ", a[k]);
     }
 
