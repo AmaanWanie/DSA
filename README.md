@@ -1,2 +1,2 @@
 # dataStructures-C
-all the codes i learned in DS
+"contains state-of-the-art code for data structures and algorithms.
