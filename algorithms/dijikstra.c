@@ -89,7 +89,7 @@ int main() {
     };
     
     // choose a Source vertex
-    int source = 5;
+    int source = 3;
     
     // Run Dijkstra's algorithm
     dijikstra(graph, source);
